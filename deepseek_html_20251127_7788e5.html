@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fan site dédié à Stray Kids. Actualités, analyses d'albums, profils des membres et guides pour les Stays.">
+    <meta name="keywords" content="Stray Kids, SKZ, JYP, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin, I.N, 3RACHA, Stay, K-Pop">
+    <title>The 8th Member | Stray Kids Fan Universe</title>
+    
+    <!-- Police Google Fonts pour le style moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 🎨 ESTHÉTIQUE & CSS --- */
+        :root {
+            --skz-red: #D32F2F;
+            --skz-black: #121212;
+            --skz-dark-gray: #1E1E1E;
+            --skz-white: #F5F5F5;
+            --skz-neon: #FF0055;
+            --skz-gold: #FFD700;
+            --font-main: 'Montserrat', sans-serif;
+            --font-code: 'Roboto Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--skz-black);
+            color: var(--skz-white);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--skz-red); }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/stray kids wallpaper for laptop.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 900; 
+            color: var(--skz-red); 
+            letter-spacing: 2px; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo::before {
+            content: "🎤";
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a { 
+            margin-left: 20px; 
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--skz-red);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        h1 { 
+            font-size: 4rem; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            margin-bottom: 20px; 
+            text-shadow: 0 0 10px var(--skz-red);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--skz-red), 0 0 20px var(--skz-red);
+            }
+            to {
+                text-shadow: 0 0 15px var(--skz-red), 0 0 30px var(--skz-red), 0 0 40px var(--skz-red);
+            }
+        }
+
+        .subtitle { 
+            font-size: 1.2rem; 
+            font-family: var(--font-code); 
+            color: #ccc; 
+            max-width: 600px; 
+            margin-bottom: 30px;
+        }
+
+        /* SECTIONS GENERAL */
+        section { 
+            padding: 80px 10%; 
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--skz-red);
+            padding-left: 15px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background: var(--skz-red);
+            bottom: -10px;
+            left: 15px;
+        }
+
+        /* 1. DERNIER ARTICLE (Album A) */
+        .featured-article {
+            background-color: var(--skz-dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-img {
+            flex: 1;
+            min-width: 300px;
+            background: url('images/Stray Kids - 7th Mini Album \'MAXIDENT\' _ Album Cover.jpg') center/cover;
+        }
+
+        .article-content { 
+            flex: 1; 
+            padding: 40px; 
+        }
+
+        .tag { 
+            background: var(--skz-red); 
+            padding: 5px 10px; 
+            font-size: 0.8rem; 
+            border-radius: 3px; 
+            font-weight: bold; 
+            display: inline-block;
+        }
+
+        .article-content h3 { 
+            font-size: 2rem; 
+            margin: 15px 0; 
+            color: var(--skz-gold);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid var(--skz-red);
+            color: var(--skz-white);
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--skz-red);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        /* 2. MEMBRES */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .member-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 20px rgba(211, 47, 47, 0.3);
+        }
+
+        .member-img { 
+            height: 300px; 
+            background-color: #333; 
+            background-size: cover; 
+            background-position: center; 
+            transition: transform 0.5s;
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.05);
+        }
+
+        .member-info { 
+            padding: 20px; 
+            position: relative;
+        }
+
+        .member-name { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            color: var(--skz-red); 
+            margin-bottom: 5px;
+        }
+
+        .member-role { 
+            font-size: 0.9rem; 
+            color: #888; 
+            margin-bottom: 10px; 
+            font-family: var(--font-code); 
+        }
+
+        .fun-fact { 
+            font-size: 0.85rem; 
+            margin-top: 10px; 
+            border-top: 1px solid #444; 
+            padding-top: 10px; 
+        }
+
+        /* 3. 3RACHA & MUSIC */
+        .tracha-section {
+            background: radial-gradient(circle, #2a0000 0%, #000000 100%);
+            border: 1px solid var(--skz-red);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tracha-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,85,0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+        }
+
+        .tracha-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .playlist { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 30px; 
+            text-align: left; 
+        }
+
+        .track { 
+            background: rgba(255,255,255,0.05); 
+            padding: 15px; 
+            border-left: 3px solid var(--skz-neon); 
+            display: flex; 
+            justify-content: space-between; 
+            transition: background 0.3s;
+        }
+
+        .track:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* 4. VISUEL & ESTHÉTIQUE */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: #333;
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .gallery-item::after {
+            content: attr(data-title);
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.6);
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-item:hover::after { 
+            opacity: 1; 
+        }
+
+        /* 5. INTERACTIF (Quiz) */
+        .quiz-container {
+            background: var(--skz-white);
+            color: var(--skz-black);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .quiz-result { 
+            margin-top: 20px; 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            color: var(--skz-red); 
+            min-height: 40px;
+            transition: opacity 0.5s;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            border-top: 2px solid var(--skz-red);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Stray_Kids_at_KCON_2019_in_Hamilton_%285%29_%28cropped%29.jpg/1200px-Stray_Kids_at_KCON_2019_in_Hamilton_%285%29_%28cropped%29.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .socials { 
+            margin: 20px 0; 
+            font-size: 1.5rem; 
+        }
+
+        .socials a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .socials a:hover {
+            transform: translateY(-5px);
+        }
+
+        .disclaimer { 
+            font-size: 0.8rem; 
+            color: #666; 
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0,0,0,0.9);
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                margin: 10px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .gallery-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .featured-article {
+                flex-direction: column;
+            }
+            
+            .article-img {
+                min-height: 200px;
+            }
+        }
+        
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+        }
+        
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--skz-black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--skz-red);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">THE 8TH MEMBER</div>
+        <div class="nav-links">
+            <a href="#latest">News</a>
+            <a href="#members">Profils</a>
+            <a href="#music">3RACHA</a>
+            <a href="#gallery">Style</a>
+            <a href="#interactive">Guides</a>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header>
+        <h1>Stray Kids Everywhere<br>All Around The World</h1>
+        <p class="subtitle">Analyse passionnée, théories MVs, et tout l'univers SKZ décrypté pour les Stays.(J'ai tous fais avec chatgpt pcq je connais rien a ce groupe de merde)(PS: les images sont dans le desordre pcq j'ai la flemme et c chiant de biens les placer)(un jour j'ameliorerais ce blog dont je suis absolument pas fan mdrr)</p>
+        <br>
+        <a href="#latest" class="cta-button">Découvrir le dernier comeback</a>
+    </header>
+
+    <!-- 1. CONTENU PRINCIPAL : DERNIER ARTICLE -->
+    <section id="latest">
+        <h2 class="section-title">🔥 Comeback Central</h2>
+        <div class="featured-article">
+            <div class="article-img"></div>
+            <div class="article-content">
+                <span class="tag">Analyse Album</span>
+                <h3>"ROCK-STAR" est arrivé : Le Nouveau Chef-d'œuvre</h3>
+                <p><strong>Première impression :</strong> L'album "ROCK-STAR" marque un tournant sombre et électrique. Dès les premières notes, on sent la production signature de 3RACHA mais avec une distorsion rock inédite.</p>
+                <br>
+                <p><strong>Track-by-Track :</strong> Le titre principal "LALALALA" explose les codes avec un drop anti-climatique génial. Le MV est bourré d'Easter Eggs faisant référence à l'ère "ODDINARY".</p>
+                <br>
+                <p><strong>B-Side Pépite :</strong> "COMFLEX" mérite plus d'attention. C'est vocalement la piste la plus complexe de Seungmin à ce jour.</p>
+                <a href="#" class="cta-button">Lire l'analyse complète & commenter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROFILS DES MEMBRES -->
+    <section id="members">
+        <h2 class="section-title">🌟 Les 8 Étoiles</h2>
+        <div class="members-grid">
+            <!-- Bang Chan -->
+            <div class="member-card">
+                <div class="member-img" style="background-image: url('images/Bangchan.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Bang Chan</div>
+                    <div class="member-role">Leader, Producer, Vocalist</div>
+                    <p class="fun-fact">💬 <strong>Citation :</strong> "Just enjoy the show."</p>
+                    <p class="fun-fact">🐺 <strong>SKZOO :</strong> Wolf Chan</p>
+                </div>
+            </div>
+            <!-- Lee Know -->
+            <div class="member-card">
+                <div class="member-img" style="background-image: url('images/Lee Know Instagram Live Meme Funny.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Lee Know</div>
+                    <div class="member-role">Dancer, Vocalist</div>
+                    <p class="fun-fact">😼 <strong>Fact :</strong> Aime mettre les mouchoirs au frigo.</p>
+                    <p class="fun-fact">🐰 <strong>SKZOO :</strong> Leebit</p>
+                </div>
+            </div>
+            <!-- Changbin -->
+            <div class="member-card">
+                <div class="member-img" style="background-image: url('images/Changbin 🐷.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Changbin</div>
+                    <div class="member-role">Rapper, Producer</div>
+                    <p class="fun-fact">🍕 <strong>Fact :</strong> Ne peut pas dormir sans son Munchlax.</p>
+                    <p class="fun-fact">🐷🐰 <strong>SKZOO :</strong> Dwaekki</p>
+                </div>
+            </div>
+            <!-- Hyunjin -->
+            <div class="member-card">
+                <div class="member-img" style="background-image: url('images/♡︎𝙨𝙩𝙧𝙖𝙮 𝙠𝙞𝙙𝙨 𝙩𝙝𝙪𝙣𝙙𝙚𝙧𝙤𝙪𝙨 ♡︎.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Hyunjin</div>
+                    <div class="member-role">Dancer, Rapper</div>
+                    <p class="fun-fact">🎨 <strong>Passion :</strong> Peintre talentueux.</p>
+                    <p class="fun-fact">🥟 <strong>SKZOO :</strong> Jiniret</p>
+                </div>
+            </div>
+            <!-- Autres membres (simplifiés pour le code) -->
+             <div class="member-card">
+                <div class="member-img" style="background-image: url('images/#han #hanjisung #straykids #hanfiltro #hancute #hansexy #haninstagram #hanig #hanpost #dramaticfilter.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">HAN</div>
+                    <div class="member-role">Rapper, Producer</div>
+                    <p class="fun-fact">🐿️ <strong>SKZOO :</strong> Quokka</p>
+                </div>
+            </div>
+             <div class="member-card">
+                <div class="member-img" style="background-image: url('images/♡Felix icon♡.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Felix</div>
+                    <div class="member-role">Dancer, Rapper</div>
+                    <p class="fun-fact">🐣 <strong>SKZOO :</strong> BbokAri</p>
+                </div>
+            </div>
+             <div class="member-card">
+                <div class="member-img" style="background-image: url('images/Case 143 fanart.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">Seungmin</div>
+                    <div class="member-role">Vocalist</div>
+                    <p class="fun-fact">🐶 <strong>SKZOO :</strong> PuppyM</p>
+                </div>
+            </div>
+             <div class="member-card">
+                <div class="member-img" style="background-image: url('images/téléchargement.jpg');"></div>
+                <div class="member-info">
+                    <div class="member-name">I.N</div>
+                    <div class="member-role">Vocalist, Maknae</div>
+                    <p class="fun-fact">🦊 <strong>SKZOO :</strong> FoxI.Ny</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MUSIQUE & 3RACHA -->
+    <section id="music">
+        <h2 class="section-title">🎤 L'Art de 3RACHA</h2>
+        <div class="tracha-section">
+            <h3>Bang Chan x Changbin x Han</h3>
+            <p>Le cœur créatif de Stray Kids. Plongée dans leur processus de "Tortoise and the Hare" à "God's Menu".</p>
+            
+            <div class="playlist">
+                <h4>💿 Les B-Sides Oubliées (Must Listen)</h4>
+                <div class="track">
+                    <span><strong>1. Phobia</strong> - Une masterclass vocale sur l'anxiété.</span>
+                    <span>🎧</span>
+                </div>
+                <div class="track">
+                    <span><strong>2. 3rd Eye</strong> - Les racines expérimentales du groupe.</span>
+                    <span>🎧</span>
+                </div>
+                <div class="track">
+                    <span><strong>3. Slump</strong> - Un texte poignant signé Han Jisung.</span>
+                    <span>🎧</span>
+                </div>
+            </div>
+            
+            <br>
+            <p><em>Article vedette : "Comment 3RACHA a redéfini le 'Noise Music' en genre noble."</em></p>
+        </div>
+    </section>
+
+    <!-- 4. VISUEL & FUN -->
+    <section id="gallery">
+        <h2 class="section-title">🖼️ Style File & Moodboards</h2>
+        <p style="margin-bottom: 20px;">Décryptage des tenues de scène et esthétique par Era.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/SKZ MANIAC.jpg');" data-title="Maniac Era"></div>
+            <div class="gallery-item" style="background-image: url('images/téléchargement (1).jpg');" data-title="Gods Menu Chef"></div>
+            <div class="gallery-item" style="background-image: url('images/• skz •.jpg');" data-title="Thunderous Red"></div>
+            <div class="gallery-item" style="background-image: url('images/stray kids , 스트레이 키즈.jpg');" data-title="Maxident Pink"></div>
+            <div class="gallery-item" style="background-image: url('images/♡.jpg');" data-title="Fanart Showcase"></div>
+            <div class="gallery-item" style="background-image: url('images/kim seung min.jpg');" data-title="Airport Fashion"></div>
+        </div>
+        
+        <div style="margin-top: 50px;">
+            <h2 class="section-title">💖 Fandom Fun : SKZ-CODE</h2>
+            <p>Le moment le plus drôle de la semaine : <strong>Ep. 34 - Le chaos à Jeju.</strong></p>
+            <blockquote style="border-left: 3px solid white; padding-left: 10px; margin: 10px 0; font-style: italic;">
+                "Ya! Seo Changbin!" - Lee Know
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- 5. INTERACTIF & RESSOURCES -->
+    <section id="interactive">
+        <h2 class="section-title">🛠️ Zone Stay</h2>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; background: #222; padding: 20px; border-radius: 8px;">
+                <h3>🔰 Guide Nouveau Stay</h3>
+                <ul style="list-style-type: none; margin-top: 10px;">
+                    <li>📌 Vocabulaire : Bias, Wrecker, Selca...</li>
+                    <li>📌 Où voter : Mubeat, Idol Champ.</li>
+                    <li>📌 Playlist pour débuter.</li>
+                </ul>
+            </div>
+
+            <div style="flex: 1; background: #222; padding: 20px; border-radius: 8px;">
+                <h3>🗳️ Tutoriel Streaming</h3>
+                <p>N'oubliez pas de streamer correctement sur Spotify et YouTube pour le prochain comeback !</p>
+                <a href="#" style="color: var(--skz-neon); text-decoration: underline;">Voir le guide PDF</a>
+            </div>
+        </div>
+
+        <br><br>
+        
+        <!-- QUIZ SIMPLE JS -->
+        <div class="quiz-container">
+            <h3>🧩 Quiz Rapide : Qui est ton membre âme-sœur aujourd'hui ?</h3>
+            <p>Clique sur le bouton pour laisser le destin (et le RNG) décider.</p>
+            <button class="cta-button" onclick="generateBias()" style="background:var(--skz-black); color:white; margin-top:20px; cursor:pointer;">Révéler mon membre</button>
+            <div id="quizResult" class="quiz-result"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="socials">
+            <a href="#">🐦</a> <a href="#">📷</a> <a href="#">📺</a>
+        </div>
+        <p>You Make Stray Kids Stay.</p>
+        <p class="disclaimer">The 8th Member est un fan site non-officiel. Tous les droits sur les images et la musique appartiennent à JYP Entertainment.</p>
+    </footer>
+
+    <!-- SCRIPT JS -->
+    <script>
+        // Fonction simple pour le Quiz aléatoire
+        const members = ['Bang Chan 🐺', 'Lee Know 🐰', 'Changbin 🐷🐰', 'Hyunjin 🥟', 'Han 🐿️', 'Felix 🐣', 'Seungmin 🐶', 'I.N 🦊'];
+        
+        function generateBias() {
+            const randomIndex = Math.floor(Math.random() * members.length);
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.style.opacity = 0;
+            
+            setTimeout(() => {
+                resultDiv.innerText = "Ton âme-sœur aujourd'hui est : " + members[randomIndex];
+                resultDiv.style.opacity = 1;
+                resultDiv.style.transition = "opacity 0.5s";
+            }, 200);
+        }
+
+        // Smooth scroll pour la navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Fermer le menu mobile si ouvert
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Animation au défilement
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections pour l'animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
